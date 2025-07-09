@@ -1,0 +1,34 @@
+// A Declarative Pipeline is a script that tells Jenkins what steps to run (like build, test, and deploy) in a clean and structured format
+
+
+pipeline {
+    agent any 
+    stages {
+        stage('Build') {
+            steps {
+                sh(script: 'echo "hello build"')
+            }
+        }
+        stage('Test') {
+            steps {
+                sh(script: 'echo "hello Test"')
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh(script: 'echo "hello deploy"')
+            }
+        }
+    }
+}
+
+
+
+/* **Step-by-Step Breakdown:**
+- `pipeline`: Root block that defines the entire CI/CD flow.
+- `agent any`: Tells Jenkins to use any available agent to run the stages.
+- `stages`: A block containing multiple `stage` blocks.
+  - `stage('Build')`: The first step, typically installs dependencies and builds the code.
+  - `stage('Test')`: Runs all test cases to verify the build.
+  - `stage('Deploy')`: Deploys the built code to a server or cloud environment.
+- `steps`: Contains the actual shell or script commands to execute in each stage. */
